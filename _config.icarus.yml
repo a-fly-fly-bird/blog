@@ -141,7 +141,7 @@ article:
         # Show copy code button
         clipboard: true
         # Default folding status of the code blocks. Can be "", "folded", "unfolded"
-        fold: unfolded
+        fold: folded
     # Whether to show estimated article reading time
     readtime: true
     # Whether to show updated time. For "auto", shows article update time only when page.updated is set and it is different from page.date
@@ -200,11 +200,11 @@ sidebar:
     # Left sidebar configurations
     left:
         # Whether the sidebar sticks to the top when page scrolls
-        sticky: false
+        sticky: true
     # Right sidebar configurations
     right:
         # Whether the sidebar sticks to the top when page scrolls
-        sticky: false
+        sticky: true
 # Sidebar widget configurations
 # http://ppoffice.github.io/hexo-theme-icarus/categories/Widgets/
 widgets:
@@ -220,7 +220,7 @@ widgets:
         # Author's current location
         location: China, Shanghai
         # URL or path to the avatar image
-        avatar: /images/avatar.jpeg
+        avatar: https://octodex.github.com/images/NUX_Octodex.gif
         # Whether show the rounded avatar image
         avatar_rounded: true
         # Email address for the Gravatar
@@ -248,7 +248,7 @@ widgets:
         # Whether to collapse sub-headings when they are out-of-view
         collapsed: true
         # Maximum level of headings to show (1-6)
-        depth: 3
+        depth: 4
     # Recommendation links widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
@@ -330,7 +330,7 @@ plugins:
     # https://analytics.google.com
     google_analytics:
         # Google Analytics tracking ID
-        tracking_id: 
+        tracking_id: G-YNJ1MF6C8P
     # Hotjar user feedback plugin
     # https://www.hotjar.com/
     hotjar:

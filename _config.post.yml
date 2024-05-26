@@ -1,0 +1,77 @@
+widgets:
+    # Profile widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: profile
+        # Author name
+        author: Terry Tan
+        # Author title
+        author_title: Web Developer
+        # Author's current location
+        location: China, Shanghai
+        # URL or path to the avatar image
+        avatar: https://octodex.github.com/images/NUX_Octodex.gif
+        # Whether show the rounded avatar image
+        avatar_rounded: true
+        # Email address for the Gravatar
+        gravatar:
+        # URL or path for the follow button
+        follow_link: https://github.com/a-fly-fly-bird
+        # Links to be shown on the bottom of the profile widget
+        social_links:
+            Github:
+                icon: fab fa-github
+                url: https://github.com/a-fly-fly-bird
+            Email:
+                icon: fab fa-mailchimp
+                url: mailto:fuling19.me@gmail.com
+            RSS:
+                icon: fas fa-rss
+                url: /atom.xml
+    # Table of contents widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: toc
+        # Whether to show the index of each heading
+        index: true
+        # Whether to collapse sub-headings when they are out-of-view
+        collapsed: true
+        # Maximum level of headings to show (1-6)
+        depth: 4
+    # Recent posts widget configurations
+    -
+      # Where should the widget be placed, left sidebar or right sidebar
+      position: left
+      type: recent_posts
+    # Recommendation links widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: left
+        type: links
+        # Names and URLs of the sites
+        links:
+            Hexo: https://hexo.io
+            Icarus: https://github.com/ppoffice/hexo-theme-icarus
+    # Archives widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: left
+        type: archives
+    # Categories widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: left
+        type: categories
+    # Tags widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: left
+        type: tags
+        # How to order tags. For example 'name' to order by name in ascending order, and '-length' to order by number of posts in each tags in descending order
+        order_by: name
+        # Amount of tags to show. Will show all if not set.
+        amount: 
+        # Whether to show tags count, i.e. number of posts in the tag.
+        show_count: true
