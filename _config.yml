@@ -5,7 +5,7 @@ keywords: null
 author: Terry Tan
 language: en
 timezone: 'Asia/Shanghai'
-url: http://a-fly-fly-bird.github.io
+url: http://a-fly-fly-bird.github.io/blog
 permalink: ':year/:month/:day/:title/'
 permalink_defaults: null
 pretty_urls:
