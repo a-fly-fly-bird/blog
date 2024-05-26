@@ -256,5 +256,5 @@ feed:
 
 ### 访问
 
-配置完成后，就可以通过`http://yourdomain.com/atom.xml`订阅内容啦。RSS阅读器我使用的是开源的[NetNewsWire](https://github.com/Ranchero-Software/NetNewsWire)
+配置完成后，就可以通过`http://yourdomain.com/atom.xml`订阅内容啦。RSS阅读器我使用的是开源的[NetNewsWire](https://github.com/Ranchero-Software/NetNewsWire)。
 
