@@ -106,16 +106,16 @@ head:
 navbar:
     # Navigation menu items
     menu:
-        Home: /
-        Archives: /archives
-        Categories: /categories
-        Tags: /tags
-        About: /about
+        主页: /
+        归档: /archives
+        分类: /categories
+        标签: /tags
+        关于作者: /about
     # Links to be shown on the right of the navigation bar
     links:
-        Source Code:
-            icon: fab fa-github
-            url: https://github.com/a-fly-fly-bird/a-fly-fly-bird.github.io
+        # Source Code:
+        #     icon: fab fa-github
+        #     url: https://github.com/a-fly-fly-bird/a-fly-fly-bird.github.io
 # Page footer configurations
 footer:
     # Copyright text
@@ -232,9 +232,9 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: https://github.com/a-fly-fly-bird
-            Twitter:
-                icon: fab fa-twitter
-                url: https://twitter.com
+            Email:
+                icon: fab fa-mailchimp
+                url: mailto:fuling19.me@gmail.com
             RSS:
                 icon: fas fa-rss
                 url: /atom.xml
@@ -257,7 +257,7 @@ widgets:
         # Names and URLs of the sites
         links:
             Hexo: https://hexo.io
-            Bulma: https://bulma.io
+            Icarus: https://github.com/ppoffice/hexo-theme-icarus
     # Categories widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar

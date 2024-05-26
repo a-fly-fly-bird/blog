@@ -3,7 +3,7 @@ subtitle: 'Do something.'
 description: '个人博客'
 keywords: null
 author: Terry Tan
-language: en
+language: zh-CN
 timezone: 'Asia/Shanghai'
 url: http://a-fly-fly-bird.github.io/blog
 permalink: ':year/:month/:day/:title/'
