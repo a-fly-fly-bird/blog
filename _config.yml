@@ -1,11 +1,11 @@
 title: Hexo
-subtitle: ''
-description: ''
+subtitle: 'Do something.'
+description: '个人博客'
 keywords: null
-author: John Doe
+author: Terry Tan
 language: en
-timezone: ''
-url: http://example.com
+timezone: 'Asia/Shanghai'
+url: http://a-fly-fly-bird.github.io
 permalink: ':year/:month/:day/:title/'
 permalink_defaults: null
 pretty_urls:
@@ -28,7 +28,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -61,3 +61,8 @@ ignore: null
 theme: icarus
 deploy:
   type: ''
+feed:
+  type: atom       # 可以是 'atom' 或 'rss2'，如果你需要同时支持两种格式，可以设置为 ['atom', 'rss2']
+  path: atom.xml   # 对于 Atom feed，设置为 'atom.xml'
+  limit: 20        # 生成的 feed 中包含的文章数量
+  
