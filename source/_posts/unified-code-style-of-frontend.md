@@ -1,5 +1,5 @@
 ---
-title: 前端风格统一化
+title: 代码规范工具 - Part II
 toc: true
 tags: [‘工具’, 'Clean Code']
 cover: https://source.unsplash.com/f4R3w0w-jf4
@@ -8,7 +8,10 @@ date: 2024-05-26 23:33:19
 ---
 
 ## 前言
-如果你逛Github的话，就会发现很多项目根目录除了`.github`还有个`.husky`文件夹，我一直好奇这个文件夹的作用。今天正好创建了一个新项目，借此机会一探究竟。
+
+书接上文{% post_link unified-code-style-of-frontend-angular-practice [Angular 代码规范工具 - Part I] %}，如果你逛Github的话，就会发现很多项目根目录除了`.github`还有个`.husky`文件夹，我一直好奇这个文件夹的作用。今天正好创建了一个新项目，借此机会一探究竟。
+
+[The Importance of unified code style in large scaled applications](https://medium.com/carvago-development/the-importance-of-unified-code-style-in-large-scaled-applications-6c0487ebc12e)
 
 <!-- more -->
 
