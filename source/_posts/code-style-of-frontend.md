@@ -358,6 +358,8 @@ npm install --save-dev lint-staged
   ]
 },
 ```
+（其实我感觉这里`prettier`也不是必须的，因为使用了`eslint-plugin-prettier`插件，实际上`prettier`是以`eslint`插件的形式存在的，每次执行lint就会执行prettier，下文`stylelint`也是同理。）
+
 然后修改`.husky/pre-commit`
 
 ```sh
@@ -410,6 +412,43 @@ npx --no -- commitlint --edit "$1"
 husky - commit-msg script failed (code 1)
 ```
 
+# stylelint
+
+按理说，eslint和stylelint一样，需要enable stylelint-config-prettier & stylelint-plugin-prettier等等， 但是
+> As of Stylelint v15 all style-related rules have been deprecated. If you are using v15 or higher and are not making use of these deprecated rules, this plugin is no longer necessary.
+
+所以只需要配置`stylelint-prettier`即可。
+
+## 安装
+```sh
+npm i -D stylelint stylelint-config-standard-scss stylelint-prettier postcss stylelint-config-sass-guidelines
+```
+
+## 配置
+新建`.stylelintrc.json`文件，写入如下内容：
+```json
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-sass-guidelines",
+    "stylelint-prettier/recommended"
+  ]
+}
+```
+并修改完善`packages.json`中的`lint-staged`配置如下：
+```json
+"lint-staged": {
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --fix"
+  ],
+  "*.{json,js,ts,jsx,tsx,html}": [
+    "prettier --write --ignore-unknown"
+  ],
+  "*.{css,scss}": "stylelint --fix"
+},
+```
+即可。
+
 # 最终测试
 修改`app.component.ts`的内容如下：
 ```ts
@@ -445,6 +484,10 @@ export class AppComponent {
 - [prettier](https://github.com/prettier/prettier)
 - [stylelint](https://github.com/stylelint/stylelint)
 - [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
+- [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier)
+- [stylelint-prettier](https://github.com/prettier/stylelint-prettier)
+- [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines/tree/main)
+
 ## VS Code Plugin
 - [prettier-vscode](https://github.com/prettier/prettier-vscode)
 - [vscode-eslint](https://github.com/Microsoft/vscode-eslint)
@@ -458,3 +501,4 @@ export class AppComponent {
 
 ## 本文参考
 - [Configure Prettier and ESLint with Angular 🎨](https://justangular.com/blog/configure-prettier-and-eslint-with-angular)
+- [Why and How to Lint like a PRO](https://medium.com/tbc-engineering/why-and-how-to-lint-like-a-pro-173fc4a73899)
