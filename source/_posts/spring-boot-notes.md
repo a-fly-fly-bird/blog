@@ -2,7 +2,7 @@
 title: Spring Boot 复习笔记
 toc: true
 cover: https://source.unsplash.com/random
-tags: ['Java', 'SpringBoot']
+tags: ['Java', 'Spring Boot']
 categories: ['后端']
 date: 2024-05-26 23:44:42
 ---
@@ -477,7 +477,7 @@ public Object hello(String name, String password) {
 
 
 ## DispatcherServlet
-![alt text](_media/7b8817122aa542e7b8e997ef5120688c.png)
+![alt text](7b8817122aa542e7b8e997ef5120688c.png)
 
 #TODO
 还不是很理解，有空需要再看一下[DispatcherServlet详解](https://blog.csdn.net/m0_45406092/article/details/115423861)
@@ -504,7 +504,7 @@ dependencies {
 ### 配置和连接JDBC
 数据库的URL可以在类似DBeaver这样的数据库管理软件的连接界面复制，比如：
 
-![alt text](<_media/CleanShot 2024-03-14 at 01.25.53.png>)
+![alt text](<CleanShot 2024-03-14 at 01.25.53.png>)
 
 下面的配置文件是给JDBC使用的。
 ```yaml
@@ -665,7 +665,7 @@ JPA 支持 正向工程。
 ## Repository
 
 ### Interface Hierarchy
-![alt text](_media/9c4e4c00c7a64047b819874635b4f7f9~tplv-k3u1fbpfcp-zoom-1.image.png)
+![alt text](9c4e4c00c7a64047b819874635b4f7f9~tplv-k3u1fbpfcp-zoom-1.image.png)
 
 
 ### 使用
@@ -814,7 +814,7 @@ public class Student {
 # DTO
 DTO stands for data transfer object.
 
-![alt text](<_media/CleanShot 2024-03-16 at 15.27.26.png>)
+![alt text](<CleanShot 2024-03-16 at 15.27.26.png>)
 
 `@Entity`中声明的实体类对应的是数据库中的表结构，但是想象一下：
 
@@ -1035,5 +1035,5 @@ public class StudentController {
 # End
 视频从7:34开始就是另外一个案例，看了一下，视频可以关闭了。
 
-![alt text](<_media/CleanShot 2024-03-23 at 12.22.00.png>)
+![alt text](<CleanShot 2024-03-23 at 12.22.00.png>)
 
