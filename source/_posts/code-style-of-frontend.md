@@ -1,5 +1,5 @@
 ---
-title: Angular 代码规范工具 - Part I
+title: 前端代码规范工具
 toc: true
 cover: https://source.unsplash.com/random
 tags: ['Angular', '工具', 'Clean Code']
@@ -8,6 +8,8 @@ date: 2024-05-27 22:31:31
 ---
 
 本篇文章介绍如何快速为Angular项目开启代码规范工具。
+
+[The Importance of unified code style in large scaled applications](https://medium.com/carvago-development/the-importance-of-unified-code-style-in-large-scaled-applications-6c0487ebc12e)
 
 `ESLint`, `typescript-eslint`, `Angular ESLint`, `prettier-eslint`, `eslint-config-prettier`, `eslint-plugin-prettier`, `prettier-eslint-cli`等名词太多啦，傻傻分不清？更别说还有`Prettier`, `lint-staged`, `husky`, `stylelint`, `commitlint`, `mrm`等工具。如果要再加上`VS Code`的插件的话，那就还有`prettier-vscode`, `vscode-eslint`, `vs-code-prettier-eslint`, `vscode-stylelint`, `vscode-commitlint`等等，数不胜数。
 
@@ -300,6 +302,136 @@ Lint errors found in the listed files.
 ```
 这样工作区就会拥有这些配置，当右键选择格式化的时候就会以这些插件进行，具体的格式会扫描工作区中的对应配置文件，也就是上面写好的`.eslintrc.json`和`.prettierrc.json`等等。
 
+到这里就完成了所有配置啦。明天继续记录和`lint-staged`, `husky`等工具的集成。
+
+# Husky & lint-staged
+
+书接上文，如果你逛Github的话，就会发现很多项目根目录除了`.github`还有个`.husky`文件夹，我一直好奇这个文件夹的作用。今天正好创建了一个新项目，借此机会一探究竟。
+
+## 了解Git Hooks
+Git Hooks 是在 Git 执行特定事件（如commit、push、receive等）时触发运行的**脚本**（也就是Shell，Python等语言都可以），类似于“钩子函数”。跟钩子函数一样，Git Hooks可以起到一个承上启下的作用。
+
+Git Hooks是Git提供的特性。钩子都被存储在 Git 目录下的 hooks 子目录中。 也即绝大部分项目中的 .git/hooks 。 当你用 git init 初始化一个新版本库时，Git 默认会在这个目录中放置一些示例脚本。钩子又可以分类为客户端钩子和服务器端钩子。客户端钩子分为很多种。 下面把它们分为：提交工作流钩子、电子邮件工作流钩子和其它钩子。如果想了解更多关于Git Hooks的细节，请参考[Git官方文档（Git 钩子）](https://git-scm.com/book/zh/v2/自定义-Git-Git-钩子)
+
+### Git Hooks存在的问题
+由于Git Hooks默认是存在`.git`目录下的，无法进行版本控制。好在Git新版本中`core.hooksPath`的出现可以使Hooks存放的路径指向自定义的目录。
+
+## husky
+为什么需要在git hooks上再多husky这个上层建筑呢？简而言之，**它能够简化创建和修改Githooks的操作**。
+
+### 安装husky
+根据[husky官方文档](https://typicode.github.io/husky/getting-started.html)，首先安装依赖
+```sh
+npm install --save-dev husky
+```
+然后执行：
+```sh
+npx husky init
+```
+它会：
+1. 添加`prepare`脚本到`package.json`
+2. 创建一个模板`pre-commit`钩子
+3. 配置Git hooks路径到`.husky`
+
+## lint-staged
+lint-staged 是一个在 **git 暂存文件(staged)** 上运行 linters 的工具。
+
+官方的原文是：
+> Run linters against staged git files and don't let 💩 slip into your code base!
+
+它的好处是：
+> But running a lint process on a whole project is slow, and linting results can be irrelevant. Ultimately you only want to lint files that will be committed.
+
+### 安装 lint-staged
+```sh
+npm install --save-dev lint-staged
+```
+然后配置`package.json`添加内容：
+
+```json
+"lint-staged": {
+  "*.{js, jsx,ts,tsx}": [
+    "eslint --fix"
+  ],
+  "*.{json,js,ts,jsx,tsx,html}": [
+    "prettier --write --ignore-unknown"
+  ]
+},
+```
+然后修改`.husky/pre-commit`
+
+```sh
+npx lint-staged
+```
+这样在每次commit之前都会执行`npx lint-staged`，执行`int-staged`并读取上面的`int-staged`配置，如果执行失败呢，就不会`commit`成功。（如果不清楚npm和npx的区别，请参考我的另一篇文章：[npm 和 npx 是什么](../npx_vs_npm)）
+
+# commitlint
+
+从上文就可以得知，lint是一类按照规则执行检查的工具，commitlint就是一个`git commit`校验约束工具。它要求我们的提交记录符合[conventional-commits](https://github.com/conventional-commits/conventionalcommits.org)规范。
+
+## 安装
+```sh
+npm install --save-dev @commitlint/{config-conventional,cli}
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+```
+然后在配置文件中配置详细的规则。
+
+### 规则
+详细规则参考：[官方文档](https://commitlint.js.org/#/reference-rules)。
+
+#### Angular的案例
+不同的编程语言还贴心地给出了不同的提交规范，一般我只需要吧extends的类型修改一下即可。
+
+```sh
+npm install --save-dev @commitlint/config-angular @commitlint/cli
+echo "module.exports = {extends: ['@commitlint/config-angular']};" > commitlint.config.js
+```
+
+### 与husky的结合
+
+往`.husky/commit-msg`文件写入：
+```sh
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no -- commitlint --edit "$1"
+```
+这样，如果提交不符合规范，就不能成功commit到git库了。
+
+```txt
+[COMPLETED] Cleaning up temporary files...
+⧗   input: commit msg test
+✖   subject may not be empty [subject-empty]
+✖   type may not be empty [type-empty]
+
+✖   found 2 problems, 0 warnings
+ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
+
+husky - commit-msg script failed (code 1)
+```
+
+# 最终测试
+修改`app.component.ts`的内容如下：
+```ts
+export class AppComponent {
+  title: any = 'frontend-formatter-demo';
+}
+```
+然后提交出现如下报错：
+```
+✖ eslint --fix:
+
+/Users/terry/Desktop/frontend-formatter-demo/src/app/app.component.ts
+  12:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 1 problem (1 error, 0 warnings)
+```
+说明大功告成。
+
+# TL;DR;
+这是配置的源码仓库，每一节对应一个提交记录：
+[a-fly-fly-bird/frontend-formatter-demo](https://github.com/a-fly-fly-bird/frontend-formatter-demo/)
+
 # Reference
 ## Common
 - [commitlint](https://github.com/conventional-changelog/commitlint)
@@ -326,9 +458,3 @@ Lint errors found in the listed files.
 
 ## 本文参考
 - [Configure Prettier and ESLint with Angular 🎨](https://justangular.com/blog/configure-prettier-and-eslint-with-angular)
-
-到这里就完成了所有配置啦。明天继续记录和`lint-staged`, `husky`等工具的集成。
-
-# TL;DR;
-这是配置的源码仓库，每一节对应一个提交记录：
-[a-fly-fly-bird/frontend-formatter-demo](https://github.com/a-fly-fly-bird/frontend-formatter-demo/)
