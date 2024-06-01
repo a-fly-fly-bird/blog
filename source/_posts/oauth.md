@@ -1,7 +1,7 @@
 ---
 title: OAuth 学习笔记
 toc: true
-cover: https://source.unsplash.com/random
+cover: https://source.unsplash.com/Emls_8KNvN4
 tags: ['OAuth']
 categories: ['后端']
 date: 2024-05-28 23:37:14

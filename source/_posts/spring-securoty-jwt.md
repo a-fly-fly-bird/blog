@@ -1,7 +1,7 @@
 ---
 title: Spring Securoty 学习
 toc: true
-cover: https://source.unsplash.com/random
+cover: https://source.unsplash.com/mIhk3h6K7X8
 tags: ['Spring Boot', 'security']
 categories: ['后端']
 date: 2024-05-28 23:32:29

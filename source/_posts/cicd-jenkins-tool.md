@@ -1,7 +1,7 @@
 ---
-title: cicd-jenkins-tool
+title: CI/CD - Jenkins 使用
 toc: true
-cover: https://source.unsplash.com/random
+cover: https://source.unsplash.com/rYQlRntSU0E
 tags: ['CI/CD']
 categories: ['折腾']
 date: 2024-05-28 23:44:31

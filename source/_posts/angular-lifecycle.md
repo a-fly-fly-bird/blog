@@ -1,7 +1,7 @@
 ---
 title: Angular 生命周期
 toc: true
-cover: https://source.unsplash.com/random
+cover: https://source.unsplash.com/cgoS_RgVuTE
 tags: ['Angular']
 categories: ['前端']
 date: 2024-05-28 23:41:48

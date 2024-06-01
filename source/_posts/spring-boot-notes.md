@@ -1,7 +1,7 @@
 ---
 title: Spring Boot 复习笔记
 toc: true
-cover: https://source.unsplash.com/random
+cover: https://source.unsplash.com/XRhUTUVuXAE
 tags: ['Java', 'Spring Boot']
 categories: ['后端']
 date: 2024-05-26 23:44:42

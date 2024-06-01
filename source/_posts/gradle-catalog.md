@@ -1,7 +1,7 @@
 ---
 title: Gradle Catalog 简单使用
 toc: true
-cover: https://source.unsplash.com/random
+cover: https://source.unsplash.com/_ar2ENzmqb0
 tags: ['Java', 'Gradle']
 categories: ['折腾']
 date: 2024-05-28 23:29:51

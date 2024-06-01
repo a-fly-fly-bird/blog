@@ -1,7 +1,7 @@
 ---
 title: 前端性能监控
 toc: true
-cover: https://source.unsplash.com/random
+cover: https://source.unsplash.com/4-QpFNeLOpQ
 tags: ['工具', '监控']
 categories: ['前端']
 date: 2024-05-28 23:40:15
