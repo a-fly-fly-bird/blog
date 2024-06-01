@@ -3,7 +3,7 @@ title: 现代响应式Web UI设计
 toc: true
 cover: https://source.unsplash.com/UahLMixvshE
 tags: ['UI', '设计']
-categories: ['前端', '审美']
+categories: ['前端']
 date: 2024-06-01 15:11:36
 ---
 

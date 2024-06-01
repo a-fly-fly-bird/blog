@@ -1,7 +1,7 @@
 ---
 title: 前端代码规范工具
 toc: true
-cover: https://source.unsplash.com/3pS4JB5w
+cover: https://source.unsplash.com/vpOeXr5wmR4
 tags: ['Angular', '工具', 'Clean Code']
 categories: ['前端']
 date: 2024-05-27 22:31:31
