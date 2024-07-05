@@ -25,6 +25,6 @@
     "hexo-server": "^3.0.0",
     "hexo-theme-butterfly": "^4.13.0",
     "hexo-theme-icarus": "^6.0.0",
-    "hexo-theme-stellar": "^1.29.0"
+    "hexo-theme-stellar": "^1.29.1"
   }
 }
